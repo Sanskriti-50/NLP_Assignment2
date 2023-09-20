@@ -1,0 +1,145 @@
+import math
+
+total_perp = 0
+count_sent = 0
+#For k=0.1
+k = 0.1 
+
+for sentence in validation_set:
+    count_sent += 1
+    if len(sentence) < 4:
+        continue
+    else:
+        n = len(sentence)
+        log_perp = 0
+        for i in range(3, n):
+            n_gram = (sentence[i-3], sentence[i-2], sentence[i-1], sentence[i])
+            
+            trigram_count = trigrams.get(n_gram[:-1], 0)
+            quadgram_count = quadgrams.get(n_gram, 0)
+            vocabulary_size = len(unigrams)
+            
+            smooth_prob = (trigram_count + k) / (quadgram_count + k * vocabulary_size)
+            log_perp += math.log(smooth_prob)
+
+        log_perp = (1/n) * log_perp
+
+        total_perp += math.exp(log_perp)
+
+print("average perplexity of add-k smoothened quadgram is:", total_perp / count_sent)
+#For k=0.5
+import math
+
+total_perp = 0
+count_sent = 0
+k = 0.5 
+
+for sentence in validation_set:
+    count_sent += 1
+    if len(sentence) < 4:
+        continue
+    else:
+        n = len(sentence)
+        log_perp = 0
+        for i in range(3, n):
+            n_gram = (sentence[i-3], sentence[i-2], sentence[i-1], sentence[i])
+            
+            trigram_count = trigrams.get(n_gram[:-1], 0)
+            quadgram_count = quadgrams.get(n_gram, 0)
+            vocabulary_size = len(unigrams)
+            
+            smooth_prob = (trigram_count + k) / (quadgram_count + k * vocabulary_size)
+            log_perp += math.log(smooth_prob)
+
+        log_perp = (1/n) * log_perp
+
+        total_perp += math.exp(log_perp)
+
+print("average perplexity of add-k smoothened quadgram is:", total_perp / count_sent)
+#For k=2.5
+import math
+
+total_perp = 0
+count_sent = 0
+k = 2.5 
+
+for sentence in validation_set:
+    count_sent += 1
+    if len(sentence) < 4:
+        continue
+    else:
+        n = len(sentence)
+        log_perp = 0
+        for i in range(3, n):
+            n_gram = (sentence[i-3], sentence[i-2], sentence[i-1], sentence[i])
+            
+            trigram_count = trigrams.get(n_gram[:-1], 0)
+            quadgram_count = quadgrams.get(n_gram, 0)
+            vocabulary_size = len(unigrams)
+            
+            smooth_prob = (trigram_count + k) / (quadgram_count + k * vocabulary_size)
+            log_perp += math.log(smooth_prob)
+
+        log_perp = (1/n) * log_perp
+
+        total_perp += math.exp(log_perp)
+
+print("average perplexity of add-k smoothened quadgram is:", total_perp / count_sent)
+#For k=5
+import math
+
+total_perp = 0
+count_sent = 0
+k = 5
+
+for sentence in validation_set:
+    count_sent += 1
+    if len(sentence) < 4:
+        continue
+    else:
+        n = len(sentence)
+        log_perp = 0
+        for i in range(3, n):
+            n_gram = (sentence[i-3], sentence[i-2], sentence[i-1], sentence[i])
+            
+            trigram_count = trigrams.get(n_gram[:-1], 0)
+            quadgram_count = quadgrams.get(n_gram, 0)
+            vocabulary_size = len(unigrams)
+            
+            smooth_prob = (trigram_count + k) / (quadgram_count + k * vocabulary_size)
+            log_perp += math.log(smooth_prob)
+
+        log_perp = (1/n) * log_perp
+
+        total_perp += math.exp(log_perp)
+
+print("average perplexity of add-k smoothened quadgram is:", total_perp / count_sent)
+import math
+
+total_perp = 0
+count_sent = 0
+#For k=10
+k = 10 
+
+for sentence in validation_set:
+    count_sent += 1
+    if len(sentence) < 4:
+        continue
+    else:
+        n = len(sentence)
+        log_perp = 0
+        for i in range(3, n):
+            n_gram = (sentence[i-3], sentence[i-2], sentence[i-1], sentence[i])
+            
+            trigram_count = trigrams.get(n_gram[:-1], 0)
+            quadgram_count = quadgrams.get(n_gram, 0)
+            vocabulary_size = len(unigrams)
+            
+            smooth_prob = (trigram_count + k) / (quadgram_count + k * vocabulary_size)
+            log_perp += math.log(smooth_prob)
+
+        log_perp = (1/n) * log_perp
+
+        total_perp += math.exp(log_perp)
+
+print("average perplexity of add-k smoothened quadgram is:", total_perp / count_sent)
