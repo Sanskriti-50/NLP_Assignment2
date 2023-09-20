@@ -1,0 +1,68 @@
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define the values of k and N
+k_values = [0.1, 0.5,2.5, 5,10]
+N_values = [2, 3, 4,5,6]  
+
+average_perplexities = {N: [] for N in N_values}
+
+for N in N_values:
+    ngram_name = f"{N}-gram"
+    
+  
+    average_perplexities_ngram = []
+    
+
+    for k in k_values:
+        total_perp = 0
+        count_sent = 0
+
+        for sentence in validation_set:
+            count_sent += 1
+            if len(sentence) < N:
+                continue
+            else:
+                n = len(sentence)
+                log_perp = 0
+                
+                for i in range(N - 1, n):
+                    n_gram = tuple(sentence[i - N + 1 : i + 1])
+                    
+                    if N == 2:
+                        n_gram_count = bigrams.get(n_gram, 0)
+                        n_1_gram_count = unigrams.get(n_gram[0], 0)
+                        vocabulary_size = len(unigrams)
+                    elif N == 3:
+                        n_gram_count = trigrams.get(n_gram, 0)
+                        n_1_gram_count = bigrams.get(n_gram[:-1], 0)
+                    elif N == 4:
+                        n_gram_count = quadgrams.get(n_gram, 0)
+                        n_1_gram_count = trigrams.get(n_gram[:-1], 0)
+                    
+                   
+                    smooth_prob = (n_gram_count + k) / (n_1_gram_count + (k * vocabulary_size))
+                    log_perp += math.log(smooth_prob)
+
+                log_perp = (1 / (n - N + 1)) * log_perp
+                total_perp += math.exp(log_perp)
+
+        average_perplexity = total_perp / count_sent
+        average_perplexities_ngram.append(average_perplexity)
+
+    average_perplexities[ngram_name] = average_perplexities_ngram
+
+
+plt.figure(figsize=(10, 6))
+
+for N in N_values:
+    ngram_name = f"{N}-gram"
+    plt.plot(k_values, average_perplexities[ngram_name], label=ngram_name, marker='o')
+
+plt.xlabel('k Value')
+plt.ylabel('Average Perplexity')
+plt.title('Average Perplexity for Different k Values (n-grams)')
+plt.legend()
+
+plt.show()
