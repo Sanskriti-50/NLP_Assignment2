@@ -88,7 +88,7 @@ print("average perplexity of add-k smoothed bigram is:", total_perp / count_sent
 # For k= 5
 total_perp = 0
 count_sent = 0
-
+k=5
 for sentence in validation_set:
     count_sent += 1
     if len(sentence) < 2:
