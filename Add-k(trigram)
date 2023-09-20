@@ -1,0 +1,141 @@
+import math
+#For k=0.1
+total_perp = 0
+count_sent = 0
+k = 0.1 
+for sentence in validation_set:
+    
+    count_sent += 1
+    if(len(sentence) < 3): continue
+    else:
+        n = len(sentence)
+        log_perp = 0
+        for i in range(2 , n):
+            n_gram = (sentence[i-2], sentence[i-1], sentence[i])
+            
+            trigram_count = trigrams.get(n_gram, 0)
+            bigram_count = bigrams.get(n_gram[:-1], 0)
+            unigram_count = unigrams.get(n_gram[-1], 0)
+
+    
+            smooth_prob = (trigram_count + k) / (bigram_count + (k * len(unigrams)))
+
+            log_perp += math.log(smooth_prob)
+
+        log_perp = (1/n) * log_perp
+
+        total_perp += math.exp(log_perp)
+
+print("average perplexity of add-k smoothed trigram is:", total_perp / count_sent)
+#For k=0.5
+total_perp = 0
+count_sent = 0
+k = 0.5
+for sentence in validation_set:
+    
+    count_sent += 1
+    if(len(sentence) < 3): continue
+    else:
+        n = len(sentence)
+        log_perp = 0
+        for i in range(2 , n):
+            n_gram = (sentence[i-2], sentence[i-1], sentence[i])
+            
+            trigram_count = trigrams.get(n_gram, 0)
+            bigram_count = bigrams.get(n_gram[:-1], 0)
+            unigram_count = unigrams.get(n_gram[-1], 0)
+
+    
+            smooth_prob = (trigram_count + k) / (bigram_count + (k * len(unigrams)))
+
+            log_perp += math.log(smooth_prob)
+
+        log_perp = (1/n) * log_perp
+
+        total_perp += math.exp(log_perp)
+
+print("average perplexity of add-k smoothed trigram is:", total_perp / count_sent)
+#For k=2.5
+total_perp = 0
+count_sent = 0
+k = 2.5
+for sentence in validation_set:
+    
+    count_sent += 1
+    if(len(sentence) < 3): continue
+    else:
+        n = len(sentence)
+        log_perp = 0
+        for i in range(2 , n):
+            n_gram = (sentence[i-2], sentence[i-1], sentence[i])
+            
+            trigram_count = trigrams.get(n_gram, 0)
+            bigram_count = bigrams.get(n_gram[:-1], 0)
+            unigram_count = unigrams.get(n_gram[-1], 0)
+
+    
+            smooth_prob = (trigram_count + k) / (bigram_count + (k * len(unigrams)))
+
+            log_perp += math.log(smooth_prob)
+
+        log_perp = (1/n) * log_perp
+
+        total_perp += math.exp(log_perp)
+
+print("average perplexity of add-k smoothed trigram is:", total_perp / count_sent)
+#For k=5
+total_perp = 0
+count_sent = 0
+k = 5
+for sentence in validation_set:
+    
+    count_sent += 1
+    if(len(sentence) < 3): continue
+    else:
+        n = len(sentence)
+        log_perp = 0
+        for i in range(2 , n):
+            n_gram = (sentence[i-2], sentence[i-1], sentence[i])
+            
+            trigram_count = trigrams.get(n_gram, 0)
+            bigram_count = bigrams.get(n_gram[:-1], 0)
+            unigram_count = unigrams.get(n_gram[-1], 0)
+
+    
+            smooth_prob = (trigram_count + k) / (bigram_count + (k * len(unigrams)))
+
+            log_perp += math.log(smooth_prob)
+
+        log_perp = (1/n) * log_perp
+
+        total_perp += math.exp(log_perp)
+
+print("average perplexity of add-k smoothed trigram is:", total_perp / count_sent)
+#For k=10
+total_perp = 0
+count_sent = 0
+k = 10
+for sentence in validation_set:
+    
+    count_sent += 1
+    if(len(sentence) < 3): continue
+    else:
+        n = len(sentence)
+        log_perp = 0
+        for i in range(2 , n):
+            n_gram = (sentence[i-2], sentence[i-1], sentence[i])
+            
+            trigram_count = trigrams.get(n_gram, 0)
+            bigram_count = bigrams.get(n_gram[:-1], 0)
+            unigram_count = unigrams.get(n_gram[-1], 0)
+
+    
+            smooth_prob = (trigram_count + k) / (bigram_count + (k * len(unigrams)))
+
+            log_perp += math.log(smooth_prob)
+
+        log_perp = (1/n) * log_perp
+
+        total_perp += math.exp(log_perp)
+
+print("average perplexity of add-k smoothed trigram is:", total_perp / count_sent)
